@@ -1,0 +1,778 @@
+/* ==========================================================================
+   ULTRA-PREMIUM MINIMALIST & PLEASANT RESUME STYLING (Anas Chaouch)
+   ========================================================================== */
+
+:root {
+    /* Rich, Pleasant and Warm Color Palette */
+    --bg-app: radial-gradient(circle at 10% 20%, #f8fafc 0%, #e2e8f0 100%); /* Soft ambient gradient */
+    --bg-card: #ffffff;         /* Elegant white canvas */
+    
+    --primary: #0f2a4a;         /* Deep Premium Sapphire Blue */
+    --primary-light: #2563eb;   /* Dynamic Accent Cobalt */
+    --primary-glow: rgba(37, 99, 235, 0.08);
+    
+    --accent: #b59461;          /* Warm Champagne Gold */
+    --accent-light: #fefaf0;    /* Extremely soft warm gold tint */
+    --accent-glow: rgba(181, 148, 97, 0.12);
+    
+    --text-main: #475569;       /* Slate 600 - Perfect contrast, easy on the eyes */
+    --text-bold: #0f172a;       /* Slate 900 - Deep slate for structure */
+    --text-muted: #94a3b8;      /* Slate 400 - Delicate details */
+    --text-light: #ffffff;
+    
+    --border: #f1f5f9;          /* Extra light border for invisible grids */
+    --border-accent: #e2e8f0;   /* Slate 200 for clean lines */
+    
+    /* Layout Details */
+    --radius-circle: 50%;
+    --radius-pill: 8px;         /* Rounded soft edges */
+    --radius-card: 20px;        /* Luxurious modern rounded card */
+    
+    /* Deep glowing three-dimensional shadows */
+    --shadow-card: 0 25px 60px -15px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(15, 23, 42, 0.01);
+    --shadow-hover: 0 35px 80px -20px rgba(15, 23, 42, 0.15);
+    --shadow-sm: 0 4px 6px -1px rgba(15, 23, 42, 0.03);
+    
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Luxury Obsidian & Deep Velvet Theme */
+.dark-mode {
+    --bg-app: radial-gradient(circle at 50% 50%, #080c14 0%, #020408 100%);
+    --bg-card: #0d1527;         /* Deep midnight-slate card */
+    
+    --primary: #60a5fa;         /* Glowing electric sky blue */
+    --primary-light: #3b82f6;   
+    --primary-glow: rgba(96, 165, 250, 0.15);
+    
+    --accent: #fbbf24;          /* Warm Amber Gold */
+    --accent-light: #1e2019;    
+    --accent-glow: rgba(251, 191, 36, 0.15);
+    
+    --text-main: #94a3b8;       /* High-comfort gray */
+    --text-bold: #f8fafc;       /* Crisp white */
+    --text-muted: #4b5563;
+    
+    --border: #131d31;
+    --border-accent: #1e293b;
+    --shadow-card: 0 25px 70px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 35px 90px rgba(0, 0, 0, 0.6);
+}
+
+/* ==========================================================================
+   RESET & ANIMATED BASE
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-app);
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: background 0.4s ease, color 0.4s ease;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* The Paper Card Sheet (Floating with subtle entrance) */
+.cv-card {
+    width: 100%;
+    max-width: 920px;
+    background-color: var(--bg-card);
+    box-shadow: var(--shadow-card);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border);
+    padding: 60px;
+    transition: var(--transition);
+    animation: luxuriousEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.cv-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+}
+
+@keyframes luxuriousEntrance {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px) scale(0.98); 
+        filter: blur(10px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+        filter: blur(0);
+    }
+}
+
+/* ==========================================================================
+   HEADER SECTION: Playful & Extremely Clean
+   ========================================================================== */
+
+.cv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-accent);
+    padding-bottom: 35px;
+    margin-bottom: 35px;
+}
+
+.header-main {
+    flex: 1;
+}
+
+.name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-bold);
+    letter-spacing: -0.8px;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    transition: var(--transition);
+}
+
+.title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+    transition: var(--transition);
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background-color: var(--border);
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+/* Horizontal Inline Contact Info with Hover Bubbles */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.88rem;
+    color: var(--text-main);
+}
+
+.contact-info span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: var(--transition);
+}
+
+.contact-info span:hover {
+    background-color: var(--primary-glow);
+    color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.contact-info svg {
+    width: 15px;
+    height: 15px;
+    color: var(--accent);
+    stroke-width: 2.2;
+    transition: var(--transition);
+}
+
+.contact-info span:hover svg {
+    transform: scale(1.15);
+    color: var(--primary-light);
+}
+
+.dot-separator {
+    color: var(--border-accent);
+    font-weight: 300;
+    font-size: 1.2rem;
+    user-select: none;
+}
+
+/* Beautiful profile photo frame with soft glow */
+.header-photo {
+    margin-left: 40px;
+}
+
+.photo-frame {
+    width: 120px;
+    height: 120px;
+    border-radius: var(--radius-circle);
+    overflow: hidden;
+    border: 4px solid #ffffff;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--border);
+    transition: var(--transition);
+    position: relative;
+}
+
+.dark-mode .photo-frame {
+    border-color: #1e293b;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.photo-frame:hover {
+    transform: scale(1.08) rotate(3deg);
+    border-color: var(--accent);
+    box-shadow: 0 15px 35px rgba(181, 148, 97, 0.25);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   PROFILE SUMMARY (Elegant Quote style)
+   ========================================================================== */
+
+.profile-summary {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: var(--text-main);
+    font-style: normal;
+    font-weight: 400;
+    border-left: 3px solid var(--accent);
+    background-color: var(--accent-light);
+    padding: 20px 25px;
+    border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+.dark-mode .profile-summary {
+    background-color: rgba(251, 191, 36, 0.04);
+}
+
+/* ==========================================================================
+   LAYOUT GRID
+   ========================================================================== */
+
+.cv-grid {
+    display: grid;
+    grid-template-columns: 1.55fr 1fr;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+/* Section Title Style */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-bold);
+    margin-bottom: 25px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-accent);
+    position: relative;
+    letter-spacing: -0.2px;
+    transition: var(--transition);
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 45px;
+    height: 3px;
+    border-radius: 10px;
+    background-color: var(--accent);
+    transition: var(--transition);
+}
+
+.cv-section {
+    margin-bottom: 35px;
+}
+
+/* ==========================================================================
+   LEFT COLUMN (TIMELINE ITEMS)
+   ========================================================================== */
+
+.timeline-item {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.timeline-item:hover {
+    padding-left: 6px;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+}
+
+.item-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-bold);
+}
+
+.item-date {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent);
+    background-color: var(--accent-glow);
+    padding: 3px 12px;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+}
+
+.item-subtitle {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--primary-light);
+    margin-bottom: 10px;
+    letter-spacing: 0.2px;
+}
+
+.item-details {
+    list-style: none;
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+.item-details li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 6px;
+    color: var(--text-main);
+}
+
+.item-details li::before {
+    content: "▫";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 900;
+}
+
+.item-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   RIGHT COLUMN (SKILLS PILLS & DETAILS)
+   ========================================================================== */
+
+.skills-category-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-bold);
+    margin: 18px 0 10px 0;
+}
+
+.skills-category-title:first-of-type {
+    margin-top: 0;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.skill-pill {
+    font-size: 0.78rem;
+    font-weight: 600;
+    background-color: var(--border);
+    color: var(--text-main);
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    border: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.skill-pill:hover {
+    background-color: var(--accent-glow);
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.dark-mode .skill-pill {
+    background-color: #121b2d;
+}
+
+/* Languages list styling */
+.language-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.88rem;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: var(--border);
+    transition: var(--transition);
+}
+
+.dark-mode .language-item {
+    background-color: #121b2d;
+}
+
+.language-item:hover {
+    transform: translateX(4px);
+    background-color: var(--accent-glow);
+}
+
+.lang-label {
+    font-weight: 700;
+    color: var(--text-bold);
+}
+
+.lang-level {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+/* Atouts/Strengths List */
+.strengths-list-simple {
+    list-style: none;
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+.strengths-list-simple li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 18px;
+    color: var(--text-main);
+}
+
+.strengths-list-simple li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   BUTTONS, TOGGLES & INTERACTION
+   ========================================================================== */
+
+.action-bar {
+    position: fixed;
+    top: 25px;
+    right: 85px;
+    z-index: 100;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-accent);
+    color: var(--text-bold);
+    border-radius: 50px;       /* Circular Pill Button */
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--text-bold);
+    color: var(--bg-card);
+    border-color: var(--text-bold);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.15);
+}
+
+/* Simple Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-accent);
+    color: var(--text-bold);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    z-index: 100;
+}
+
+.theme-toggle:hover {
+    background-color: var(--border);
+    transform: scale(1.1) rotate(15deg);
+}
+
+.sun-icon {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+.moon-icon {
+    width: 18px;
+    height: 18px;
+    display: none;
+}
+
+.dark-mode .sun-icon {
+    display: none;
+}
+
+.dark-mode .moon-icon {
+    display: block;
+    color: #fbbf24;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Adaptive & Fluid)
+   ========================================================================== */
+
+@media (max-width: 850px) {
+    body {
+        padding: 30px 15px;
+    }
+    
+    .cv-card {
+        padding: 35px 25px;
+        border-radius: 16px;
+    }
+    
+    .cv-header {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 25px;
+        padding-bottom: 25px;
+    }
+    
+    .header-photo {
+        margin-left: 0;
+    }
+    
+    .contact-info {
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    .cv-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .action-bar {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .theme-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+}
+
+/* ==========================================================================
+   HIGH-FIDELITY PRINT RENDERING (EXACTLY 1 PAGE A4)
+   ========================================================================== */
+
+@media print {
+    body {
+        background: transparent !important;
+        color: #000000 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .no-print,
+    .theme-toggle,
+    .action-bar {
+        display: none !important;
+    }
+    
+    .cv-card {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        background: transparent !important;
+        transform: none !important;
+    }
+    
+    .cv-header {
+        border-bottom: 2px solid #000000 !important;
+        padding-bottom: 15px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .name {
+        font-size: 2.2rem !important;
+        color: #000000 !important;
+    }
+    
+    .title {
+        font-size: 0.95rem !important;
+        color: #333333 !important;
+    }
+    
+    .subtitle {
+        font-size: 0.8rem !important;
+        background-color: #f1f5f9 !important;
+        color: #000000 !important;
+        padding: 2px 8px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    .photo-frame {
+        width: 90px !important;
+        height: 90px !important;
+        border: 2px solid #000000 !important;
+    }
+    
+    .profile-summary {
+        font-size: 0.85rem !important;
+        line-height: 1.45 !important;
+        padding: 10px 15px !important;
+        background-color: #fafafa !important;
+        border-left-width: 3px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    .section-title {
+        font-size: 1.15rem !important;
+        border-bottom: 1.5px solid #000000 !important;
+        margin-bottom: 15px !important;
+        padding-bottom: 4px !important;
+    }
+    
+    .section-title::after {
+        display: none !important;
+    }
+    
+    .cv-grid {
+        gap: 35px !important;
+        margin-top: 15px !important;
+    }
+    
+    .timeline-item {
+        margin-bottom: 15px !important;
+        padding-bottom: 12px !important;
+    }
+    
+    .item-title {
+        font-size: 0.92rem !important;
+    }
+    
+    .item-date {
+        font-size: 0.72rem !important;
+        color: #000000 !important;
+        background-color: #e2e8f0 !important;
+        padding: 1px 8px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    .item-subtitle {
+        margin-bottom: 5px !important;
+        font-size: 0.8rem !important;
+    }
+    
+    .item-details li,
+    .item-text {
+        font-size: 0.78rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .skill-pill {
+        background-color: #f1f5f9 !important;
+        color: #000000 !important;
+        border: 1px solid #cbd5e1 !important;
+        font-size: 0.7rem !important;
+        padding: 3px 8px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    .language-item {
+        font-size: 0.78rem !important;
+        padding: 4px 8px !important;
+        background-color: #f8fafc !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    .strengths-list-simple li {
+        font-size: 0.78rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 6px !important;
+    }
+}
